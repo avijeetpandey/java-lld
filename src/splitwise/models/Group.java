@@ -40,4 +40,8 @@ public class Group {
                 ", userList=" + userList +
                 '}';
     }
+
+    public List<String> getUsers() {
+        return userList;
+    }
 }
