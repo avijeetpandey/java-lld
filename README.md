@@ -1,4 +1,4 @@
-## Low level - [ ] Design repository
+## Low level - Design repository
 This Repository aims to implement the important LLD questions from an interview point of view
 
 ## Things to implement and cover
@@ -39,7 +39,7 @@ This Repository aims to implement the important LLD questions from an interview 
 - [ ] Design a restaurant food ordering systems
 - [ ] Design customer issue resolution system
 - [ ] Design and order and inventory management system
-- [ ] Design split-wise for splitting bills
+- [x] Design split-wise for splitting bills
 - [ ] Design meeting scheduler
 - [ ] Design a vending machine
 - [ ] Design stack overflow
