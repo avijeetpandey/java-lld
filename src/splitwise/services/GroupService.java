@@ -26,7 +26,7 @@ public class GroupService {
             for (var balance : expense.getUserBalances().getBalances().entrySet()) {
                 final var user = balance.getKey();
                 final var amount = balance.getValue();
-                resultBalances.put(user, resultBalances.getOrDefault(user, NIL).add(amount));
+                resultBalances.put(user, resultBalances.getOrDefault(user, NIL).addd(amount));
             }
         }
         return new BalanceMap(resultBalances);
