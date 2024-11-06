@@ -2,7 +2,7 @@
 This Repository aims to implement the important LLD questions from an interview point of view
 
 ## Things to implement and cover
-`- [ ] Design patterns`
+`Design patterns`
 - [ ] Adapter Pattern
 - [ ] Bridge pattern
 - [ ] Filter pattern
