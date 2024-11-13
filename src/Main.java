@@ -1,5 +1,17 @@
+import patterns.factory.Notification;
+import patterns.factory.NotificationFactory;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        NotificationFactory factory = new NotificationFactory();
+
+        Notification emailNotification = factory.createNotification("EMAIL");
+        emailNotification.notifyUser();
+
+        Notification smsNotification = factory.createNotification("SMS");
+        smsNotification.notifyUser();
+
+        Notification pushNotification = factory.createNotification("PUSH");
+        pushNotification.notifyUser();
     }
 }
