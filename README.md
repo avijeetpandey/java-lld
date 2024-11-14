@@ -1,4 +1,4 @@
-## Low level - [ ] Design repository
+## Low level Design repository
 This Repository aims to implement the important LLD questions from an interview point of view
 
 ## Things to implement and cover
@@ -23,7 +23,7 @@ This Repository aims to implement the important LLD questions from an interview 
 - [ ] Front controller pattern
 - [ ] Intercepting file pattern
 - [ ] Transfer object pattern
-- [ ] Factory method
+- [ x ] Factory method
 - [ ] Abstract factory
 - [ ] Builder pattern
 - [ ] Prototype pattern
