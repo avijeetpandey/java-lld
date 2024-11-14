@@ -23,7 +23,7 @@ This Repository aims to implement the important LLD questions from an interview 
 - [ ] Front controller pattern
 - [ ] Intercepting file pattern
 - [ ] Transfer object pattern
-- [ x ] Factory method
+- [x] Factory method
 - [ ] Abstract factory
 - [ ] Builder pattern
 - [ ] Prototype pattern
