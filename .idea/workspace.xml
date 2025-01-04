@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f895e906-b53c-459e-8895-5e60163f20fb" name="Changes" comment="fix : type in group service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/patterns/DESIGN_PATTERNS.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/patterns/DESIGN_PATTERNS.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -49,11 +49,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ParkingLotDemo.executor": "Run",
     "Application.Store.executor": "Run",
     "Application.TestingClassForStrategy.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feat/parking-lot",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/avijeetpandey/dev/java-lld",
     "node.js.detected.package.eslint": "true",
@@ -88,7 +89,7 @@
       <workItem from="1735847381285" duration="9000" />
       <workItem from="1735847698046" duration="10000" />
       <workItem from="1735847726135" duration="20000" />
-      <workItem from="1735979506507" duration="11345000" />
+      <workItem from="1735979506507" duration="18400000" />
     </task>
     <task id="LOCAL-00001" summary="add: group class">
       <option name="closed" value="true" />
