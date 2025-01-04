@@ -21,3 +21,6 @@ Open-Close principle states that, A class should be open for extension but close
 ### Liskov Substitution Principle
 If `Class B` is a subtype of `Class A` , then we should be able to replace `Object of Class A` with `Object of Class B` , without breaking the behaviour of the program, 
 further the subclass should be able to extend the properties of the parent class , instead of narrowing it down.
+
+### Interface segmented principle
+Interfaces should be such that client should not implement unnecessary functions they do not need.
