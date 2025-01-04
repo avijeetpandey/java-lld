@@ -24,3 +24,6 @@ further the subclass should be able to extend the properties of the parent class
 
 ### Interface segmented principle
 Interfaces should be such that client should not implement unnecessary functions they do not need.
+
+## Dependency Injection principle
+The Dependency injection principle states that, the class should be depending upon the interfaces rather than the concrete class example.
