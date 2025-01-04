@@ -14,3 +14,8 @@
 ### Single Responsibility principle
 Single responsibility principle states that a class should have only one responsibility, in other words it should only have one reason to change.
 
+
+### Open closed principle
+Open-Close principle states that, A class should be open for extension but closed for modification.
+
+### Liskov Substitution Principle

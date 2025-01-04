@@ -9,6 +9,6 @@ public class InvoicePrinter {
 
     // print
     public void print() {
-        System.out.println("print invoice",);
+        System.out.println("print invoice");
     }
 }
