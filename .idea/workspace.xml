@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f895e906-b53c-459e-8895-5e60163f20fb" name="Changes" comment="fix : type in group service">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f895e906-b53c-459e-8895-5e60163f20fb" name="Changes" comment="fix : type in group service" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +83,7 @@
       <workItem from="1735847381285" duration="9000" />
       <workItem from="1735847698046" duration="10000" />
       <workItem from="1735847726135" duration="20000" />
-      <workItem from="1735979506507" duration="6501000" />
+      <workItem from="1735979506507" duration="7521000" />
     </task>
     <task id="LOCAL-00001" summary="add: group class">
       <option name="closed" value="true" />
