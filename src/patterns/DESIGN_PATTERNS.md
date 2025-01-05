@@ -16,3 +16,10 @@ In observer design pattern there are mainly two components
 
 So the observable notifies the observers, whenever there is a state change this is the crux of observable pattern, in other words `Observer pattern` is a pattern that defines one to many dependency between
 objects, so that when one object changes all its dependents are notified.
+
+### Decorator pattern
+Decorator pattern allows the behaviour to be added to individual objects without changing the behaviour of other objects belonging to the same class. this pattern promotes flexibility and extensibility,
+allowing the developers to compose objects with different functionalities at runtime.
+
+need of decorator pattern ?
+- This pattern avoids the `Class Explosion` from being happening.
