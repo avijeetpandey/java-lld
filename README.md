@@ -7,7 +7,7 @@ This Repository aims to implement the important LLD questions from an interview 
 - [ ] Bridge pattern
 - [ ] Filter pattern
 - [ ] Composite pattern
-- [ ] Decorator pattern
+- [x] Decorator pattern
 - [ ] Facade pattern
 - [ ] Flyweight pattern
 - [ ] Proxy pattern
@@ -16,7 +16,7 @@ This Repository aims to implement the important LLD questions from an interview 
 - [ ] Chain of responsibility
 - [ ] Command pattern
 - [ ] Iterator pattern
-- [ ] Strategy pattern
+- [x] Strategy pattern
 - [ ] Visitor pattern
 - [ ] MVC pattern
 - [ ] Data access object pattern
@@ -31,7 +31,7 @@ This Repository aims to implement the important LLD questions from an interview 
 
 
 `LLD Questions`
-- [ ] Design a parking lot system
+- [x] Design a parking lot system
 - [ ] Design a movie ticket booking system like book-my-show
 - [ ] Design game of chess
 - [ ] Design a text editor / Word processor
