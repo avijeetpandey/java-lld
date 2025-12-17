@@ -54,6 +54,7 @@
     "Application.Store.executor": "Run",
     "Application.TestingClassForStrategy.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "main",
@@ -92,7 +93,7 @@
       <workItem from="1735847698046" duration="10000" />
       <workItem from="1735847726135" duration="20000" />
       <workItem from="1735979506507" duration="22150000" />
-      <workItem from="1765950798122" duration="1757000" />
+      <workItem from="1765950798122" duration="5734000" />
     </task>
     <task id="LOCAL-00001" summary="add: group class">
       <option name="closed" value="true" />
