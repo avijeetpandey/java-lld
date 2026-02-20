@@ -1,0 +1,6 @@
+package cache.enums;
+
+public enum PersistanceAlgorithm {
+    WRITE_BACK,
+    WRITE_THROUGH
+}
