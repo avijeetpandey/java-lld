@@ -20,12 +20,12 @@ public class TokenBucketRateLimiter extends RateLimiter {
     @Override
     public boolean allowRequests(String userId) {
         AtomicBoolean allowed = new AtomicBoolean();
-        long now = System.currentTimeMillis()/1000;
+        long now = System.currentTimeMillis() / 1000;
 
         buckets.compute(userId, (id, availableTokens) -> {
             int currentTokens = refillTokens(userId, now);
 
-            if(currentTokens > 0) {
+            if (currentTokens > 0) {
                 allowed.set(true);
                 return currentTokens - 1;
             } else {
@@ -43,8 +43,8 @@ public class TokenBucketRateLimiter extends RateLimiter {
         long elapsedTime = (now - lastRefill) / 1000;
         int refillTokens = (int) (elapsedTime / refillRate);
         int currentTokens = buckets.getOrDefault(userId, config.getMaxRequests());
-        currentTokens = Math.min(config.getMaxRequests(),currentTokens+ refillTokens);
-        if(refillTokens > 0) {
+        currentTokens = Math.min(config.getMaxRequests(), currentTokens + refillTokens);
+        if (refillTokens > 0) {
             lastRefillTime.put(userId, now);
         }
 

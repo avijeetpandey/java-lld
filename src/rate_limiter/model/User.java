@@ -10,4 +10,12 @@ public class User {
         this.userId = userId;
         this.tier = tier;
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public UserTier getUserTier() {
+        return tier;
+    }
 }
