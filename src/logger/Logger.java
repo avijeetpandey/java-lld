@@ -1,15 +1,20 @@
 package logger;
 
+import logger.appender.ConsoleAppender;
+import logger.appender.LogAppender;
 import logger.enums.LogLevel;
+import logger.formatter.PlainTextFormatter;
 import logger.handler.LogHandler;
 import logger.model.LogMessage;
 
 class Logger {
     private static final Logger INSTANCE = new Logger();
     private final LogHandler handler;
+    private final LogAppender logAppender;
 
     private Logger() {
         handler = LogHandleConfiguration.build();
+        logAppender = new ConsoleAppender(new PlainTextFormatter());
     }
 
     public static Logger getInstance() {
@@ -18,6 +23,7 @@ class Logger {
 
     private void log(LogLevel level, String message) {
         LogMessage msg = new LogMessage(message, System.currentTimeMillis(), level);
+        LogHandleConfiguration.addAppenderForLevel(level, logAppender);
         handler.handle(msg);
     }
 
