@@ -40,8 +40,8 @@ public class FlashSaleService {
         }
     }
 
-    public String registerUser(User user) {
-       return userRepository.save(user);
+    public void registerUser(User user) {
+        userRepository.save(user);
     }
 
     public void addProduct(Product product, String userId) {

@@ -12,8 +12,8 @@ public class User {
     private final String email;
 
     // constructor
-    public User(String name, Role role, String email) {
-        this.id = UUID.randomUUID().toString();
+    public User(String id,String name, Role role, String email) {
+        this.id = id;
         this.name = name;
         this.role = role;
         this.email = email;

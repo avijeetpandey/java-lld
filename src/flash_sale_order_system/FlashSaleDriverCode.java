@@ -25,15 +25,15 @@ public class FlashSaleDriverCode {
         FlashSaleService service = new FlashSaleService(userRepository, orderRepository, productRepository);
         service.addObservers(new EmailNotificationListener());
 
-        String userId = service.registerUser(new User("Aman",Role.ADMIN,"aman@flash.com"));
+        service.registerUser(new User("admin","Aman",Role.ADMIN,"aman@flash.com"));
 
         for (int i = 1; i <= 50; i++) {
-            service.registerUser(new User("U"+i,Role.CUSTOMER,"u"+i+"@flash.com"));
+            service.registerUser(new User("U"+i,"U"+i,Role.CUSTOMER,"u"+i+"@flash.com"));
         }
 
         Product product = new Product("iPhone16", 20000, 10, new FlatPriceStrategy(1000));
 
-        service.addProduct(product, userId);
+        service.addProduct(product, "admin");
 
         System.out.println("Starting Flash Sale! 50 users fighting for 10 iPhones priced at 20000...");
 
@@ -63,5 +63,6 @@ public class FlashSaleDriverCode {
         executor.shutdown();
         
         System.out.println("Flash Sale Over.");
+        System.out.println(product.getSuccessfullBuyers());
     }
 }

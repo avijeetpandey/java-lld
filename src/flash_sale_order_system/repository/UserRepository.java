@@ -9,12 +9,11 @@ import flash_sale_order_system.models.User;
 public class UserRepository {
     private final Map<String, User> users = new HashMap<>();
 
-    public String save(User user) {
+    public void save(User user) {
         if(users.containsKey(user.getId())) {
             throw new DuplicateUserException("User already registered");
         } else {
             users.put(user.getId(), user);
-            return user.getId();
         }
     }
 
