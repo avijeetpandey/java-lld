@@ -15,3 +15,6 @@ The way to achieve concurrency and parallelism in Java and they are
 
 ## Basic threading 
 In the older versions of java if some background task needs to be done and executed it was a manual process and we have to create threads and manage it manually, every JAVA thread is mapped directly to the OS level thread , which made them heavy and took lot of memory and time to startup.
+
+## Executor framework
+In order to overcome the old way of dealing with threads , Java5 introduced Executor framework which gives pool of re-usable threads and if lets say 4 threads are available in the pool , 4 will be used and rest of the tasks will wait in queue untill finished.
