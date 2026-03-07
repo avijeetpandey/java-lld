@@ -23,8 +23,7 @@ public class FlashSaleService {
 
     private final List<OrderObserver> observers = new ArrayList<>();
 
-    public FlashSaleService(UserRepository userRepository, OrderRepository orderRepository,
-            ProductRepository productRepository) {
+    public FlashSaleService(UserRepository userRepository, OrderRepository orderRepository, ProductRepository productRepository) {
         this.orderRepository = orderRepository;
         this.productRepository = productRepository;
         this.userRepository = userRepository;
