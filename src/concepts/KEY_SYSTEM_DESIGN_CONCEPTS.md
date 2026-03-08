@@ -47,3 +47,6 @@ There are various kinds of database for example
 - Non- relational databases ( MongoDB )
 - Key value databases ( Redis )
 - Columnar databases ( Casandra )
+
+## Microservice
+Microservices stands on the simple concept that instead of having a massive application we split the application in multiple services , each service has its own database and communication mechanism, this greatly decouples the entire application and removes single point of failure.

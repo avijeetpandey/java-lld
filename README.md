@@ -67,3 +67,33 @@ This Repository aims to implement the important LLD questions from an interview 
 
 
 
+Questions to do today
+- Property listing service
+    - User can list property
+    - Find property based on requrements
+        - price range
+        - Number of rooms
+    - Sort by ( Rooms and price )
+    - User can mark property as Sold , Shortlisted
+- Implement type ahead search
+- Implement producer consumer using multithreading.
+- Implement a system like google flights
+- Design a calender
+- Design a rest API for a Cart system
+- What is saga pattern
+- What is microservice
+- Order management system
+- Design round where I was asked to design a marketplace to sell stuffs
+- Event Ticketing System
+- API Rate Limiter
+- Meeting Room Scheduler
+- In-Memory Key-Value Store
+- Auction / Bidding System
+- Digital wallet / ledger
+- Notification Service
+- Design tic tac toe game 
+- Design ATM machine
+- LLD of car rental system
+- LLD of splitwise
+- LLD of cache
+- LLD of ride sharing application
