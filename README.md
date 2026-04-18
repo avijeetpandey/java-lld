@@ -1,99 +1,106 @@
-## Low level Design repository
-This Repository aims to implement the important LLD questions from an interview point of view
+# Elevator Management System
 
-## Things to implement and cover
-`Design patterns`
-- [ ] Adapter Pattern
-- [ ] Bridge pattern
-- [ ] Filter pattern
-- [ ] Composite pattern
-- [x] Decorator pattern
-- [ ] Facade pattern
-- [ ] Flyweight pattern
-- [ ] Proxy pattern
-- [ ] Interpreter pattern
-- [ ] Template method
-- [ ] Chain of responsibility
-- [ ] Command pattern
-- [ ] Iterator pattern
-- [x] Strategy pattern
-- [ ] Visitor pattern
-- [ ] MVC pattern
-- [ ] Data access object pattern
-- [ ] Front controller pattern
-- [ ] Intercepting file pattern
-- [ ] Transfer object pattern
-- [x] Factory method
-- [ ] Abstract factory
-- [ ] Builder pattern
-- [ ] Prototype pattern
-- [ ] Singleton pattern
+This project is a Java-based simulation of an elevator management system. It's designed with scalability and extensibility in mind, leveraging key design patterns to ensure the code is clean, modular, and easy to maintain.
 
+## Design Patterns Used
 
-`LLD Questions`
-- [x] Design a parking lot system
-- [ ] Design a movie ticket booking system like book-my-show
-- [ ] Design game of chess
-- [ ] Design a text editor / Word processor
-- [ ] Design an elevator management system with multiple lifts
-- [ ] Design a restaurant food ordering systems
-- [ ] Design customer issue resolution system
-- [ ] Design and order and inventory management system
-- [ ] Design split-wise for splitting bills
-- [ ] Design meeting scheduler
-- [ ] Design a vending machine
-- [ ] Design stack overflow
-- [ ] Design logging framework
-- [ ] Design traffic signal control system
-- [ ] Design task management system
-- [ ] Design pub sub system
-- [ ] Design tic tac toe game
-- [ ] Design car rental system
-- [ ] Design an ATM
-- [ ] Design hotel management system
-- [ ] Design LinkedIn
-- [ ] Design Facebook
-- [ ] Design library management system
-- [ ] Design Airline management system
-- [ ] Design digital wallet system
-- [ ] Design Cache using LRU eviction policy
-- [ ] Design snake and ladder game
-- [ ] Design amazon
-- [ ] Design Cricinfo
-- [ ] Design Ride sharing application
-- [ ] Design Music streaming application
-- [ ] Design URL shortener
-- [ ] Design a global video streaming service
+### 1. Strategy Pattern
 
+- **Purpose**: To define a family of algorithms, encapsulate each one, and make them interchangeable. This lets the algorithm vary independently from the clients that use it.
+- **Implementation**: The `ElevatorSelectionStrategy` interface defines the contract for selecting an elevator. Different strategies can be implemented to cater to various needs:
+    - `NearestElevatorStrategy`: Selects the elevator closest to the requested floor. This is simple and effective for minimizing wait times in many scenarios.
+    - `OptimalElevatorStrategy`: Aims to distribute the load more evenly among elevators by selecting the one with the fewest pending requests. This can improve overall system throughput.
+- **Benefits**: We can easily add new selection strategies (e.g., a strategy for VIP requests, or one that considers energy consumption) without modifying the core `ElevatorController`. The desired strategy is injected into the controller at runtime.
 
+### 2. Command Pattern
 
-Questions to do today
-- Property listing service
-    - User can list property
-    - Find property based on requrements
-        - price range
-        - Number of rooms
-    - Sort by ( Rooms and price )
-    - User can mark property as Sold , Shortlisted
-- Implement type ahead search
-- Implement producer consumer using multithreading.
-- Implement a system like google flights
-- Design a calender
-- Design a rest API for a Cart system
-- What is saga pattern
-- What is microservice
-- Order management system
-- Design round where I was asked to design a marketplace to sell stuffs
-- Event Ticketing System
-- API Rate Limiter
-- Meeting Room Scheduler
-- In-Memory Key-Value Store
-- Auction / Bidding System
-- Digital wallet / ledger
-- Notification Service
-- Design tic tac toe game 
-- Design ATM machine
-- LLD of car rental system
-- LLD of splitwise
-- LLD of cache
-- LLD of ride sharing application
+- **Purpose**: To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+- **Implementation**: The `Request` class acts as a command object. It encapsulates all the information needed to service a request: the current floor, the desired floor, and the direction.
+- **Benefits**: By treating requests as objects, we can easily queue them, pass them to different methods, and even store a history of requests if needed.
+
+### 3. Singleton Pattern (Implicit)
+
+- **Purpose**: To ensure that a class has only one instance and provide a global point of access to it.
+- **Implementation**: The `ElevatorController` acts as a singleton in this system. While not explicitly enforced with a private constructor and static instance, its role is to be the single point of coordination for all elevator operations.
+- **Benefits**: Centralizes the management of elevators and requests, preventing conflicts and ensuring consistent behavior across the system.
+
+## Folder Structure
+
+The code is organized into the following packages to promote modularity and separation of concerns:
+
+- `elevator.core`: Contains the main `ElevatorController`, which is the brain of the system.
+- `elevator.model`: Holds the Plain Old Java Objects (POJOs) that represent the core entities of our system, such as `Elevator`, `Request`, `Direction`, and `Status`.
+- `elevator.strategy`: Includes the different `ElevatorSelectionStrategy` implementations. This is where the logic for choosing the best elevator for a given request resides.
+- `elevator`: The root package, which contains the `Main` class to run the simulation.
+
+```
+src/
+└── elevator/
+    ├── core/
+    │   └── ElevatorController.java
+    ├── model/
+    │   ├── Direction.java
+    │   ├── Elevator.java
+    │   ├── Request.java
+    │   └── Status.java
+    ├── strategy/
+    │   ├── ElevatorSelectionStrategy.java
+    │   ├── NearestElevatorStrategy.java
+    │   └── OptimalElevatorStrategy.java
+    └── Main.java
+```
+
+## How to Run
+
+1. **Compile the code**:
+   ```bash
+   javac -d . src/elevator/model/*.java src/elevator/strategy/*.java src/elevator/core/*.java src/elevator/Main.java
+   ```
+2. **Run the simulation**:
+   ```bash
+   java elevator.Main
+   ```
+
+## Example Usage
+
+The `Main.java` file provides a simple demonstration of how to use the `ElevatorController`:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Starting Elevator System...");
+
+        // Create a controller with 3 elevators and the NearestElevatorStrategy
+        ElevatorController controller = new ElevatorController(3, new NearestElevatorStrategy());
+
+        // Simulate some user requests
+        controller.requestElevator(new Request(0, 5, Direction.UP));
+        
+        try { Thread.sleep(2000); } catch(InterruptedException e) {}
+        
+        controller.requestElevator(new Request(2, 8, Direction.UP));
+        controller.requestElevator(new Request(10, 1, Direction.DOWN));
+
+        // Allow time for the system to process requests
+        try {
+            Thread.sleep(15000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Shutting down Elevator System.");
+        controller.shutdown();
+    }
+}
+```
+
+### Switching Strategies
+
+To use a different elevator selection strategy, simply pass a different strategy object to the `ElevatorController`'s constructor:
+
+```java
+// Use the OptimalElevatorStrategy instead
+ElevatorController controller = new ElevatorController(3, new OptimalElevatorStrategy());
+```
+
+This demonstrates the power of the Strategy Pattern, allowing for easy changes in behavior without altering the core logic of the controller.
