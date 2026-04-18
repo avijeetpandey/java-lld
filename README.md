@@ -1,106 +1,95 @@
-# Elevator Management System
+# Java Low-Level Design (LLD) Showcase
+
+This repository contains a collection of low-level design problems implemented in Core Java, focusing on design patterns, data structures, and concurrency.
+
+## Implemented Projects
+
+Below is a list of all the implemented LLD projects.
+
+### Core Concepts & Patterns
+*   **SOLID Principles**: [`./src/SOLID`](./src/SOLID)
+*   **Design Patterns**: [`./src/design_patterns`](./src/design_patterns)
+*   **General Java Concepts**: [`./src/concepts`](./src/concepts)
+*   **Java Questions**: [`./src/java_questions`](./src/java_questions)
+*   **Producer-Consumer**: [`./src/producer_consumer_multi_threaded`](./src/producer_consumer_multi_threaded)
+
+### System Designs
+*   **Book My Show**: [`./src/book_my_show`](./src/book_my_show)
+*   **Cache**: [`./src/cache`](./src/cache)
+*   **Coupon Engine**: [`./src/coupon_engine`](./src/coupon_engine)
+*   **Coupon System**: [`./src/coupon_system`](./src/coupon_system)
+*   **Customer Issue Resolution**: [`./src/customer_issue_resolution`](./src/customer_issue_resolution)
+*   **Double-Entry Ledger**: [`./src/double_ledger`](./src/double_ledger)
+*   **Elevator Management System**: [`./src/elevator`](./src/elevator)
+*   **Expense Sharing (Splitwise)**: [`./src/expense_sharing`](./src/expense_sharing)
+*   **Expense Policy Rule Engine**: [`./src/expense_policy_rule_engine`](./src/expense_policy_rule_engine)
+*   **Flash Sale Order System**: [`./src/flash_sale_order_system`](./src/flash_sale_order_system)
+*   **Flight Aggregation System**: [`./src/flight_aggregation_system`](./src/flight_aggregation_system)
+*   **In-Memory KV Store**: [`./src/inmemory_kv_store`](./src/inmemory_kv_store)
+*   **Inventory System**: [`./src/inventory_system`](./src/inventory_system)
+*   **Logger System**: [`./src/logger`](./src/logger)
+*   **Parking Lot**: [`./src/parkingLot`](./src/parkingLot)
+*   **Product Listing**: [`./src/product_listing`](./src/product_listing)
+*   **Rate Limiter**: [`./src/rate_limiter`](./src/rate_limiter)
+*   **Splitwise**: [`./src/splitwise`](./src/splitwise)
+*   **YouTube-Lite Video Management**: [`./src/youtube_upload`](./src/youtube_upload)
+
+---
+
+## Detailed Explanations
+
+### Elevator Management System
+
+- **Go to Implementation: [`./src/elevator`](./src/elevator)**
 
 This project is a Java-based simulation of an elevator management system. It's designed with scalability and extensibility in mind, leveraging key design patterns to ensure the code is clean, modular, and easy to maintain.
 
-## Design Patterns Used
+#### Design Patterns Used
 
-### 1. Strategy Pattern
+- **Strategy Pattern**: The `ElevatorSelectionStrategy` interface allows for interchangeable algorithms for choosing an elevator (e.g., `NearestElevatorStrategy`, `OptimalElevatorStrategy`). This decouples the selection logic from the controller.
+- **Command Pattern**: The `Request` class encapsulates all information about a user's request, acting as a command that can be queued and processed.
+- **Singleton Pattern (Implicit)**: The `ElevatorController` acts as a central, single point of coordination for all elevator operations, managing the state of all elevators in the system.
 
-- **Purpose**: To define a family of algorithms, encapsulate each one, and make them interchangeable. This lets the algorithm vary independently from the clients that use it.
-- **Implementation**: The `ElevatorSelectionStrategy` interface defines the contract for selecting an elevator. Different strategies can be implemented to cater to various needs:
-    - `NearestElevatorStrategy`: Selects the elevator closest to the requested floor. This is simple and effective for minimizing wait times in many scenarios.
-    - `OptimalElevatorStrategy`: Aims to distribute the load more evenly among elevators by selecting the one with the fewest pending requests. This can improve overall system throughput.
-- **Benefits**: We can easily add new selection strategies (e.g., a strategy for VIP requests, or one that considers energy consumption) without modifying the core `ElevatorController`. The desired strategy is injected into the controller at runtime.
-
-### 2. Command Pattern
-
-- **Purpose**: To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
-- **Implementation**: The `Request` class acts as a command object. It encapsulates all the information needed to service a request: the current floor, the desired floor, and the direction.
-- **Benefits**: By treating requests as objects, we can easily queue them, pass them to different methods, and even store a history of requests if needed.
-
-### 3. Singleton Pattern (Implicit)
-
-- **Purpose**: To ensure that a class has only one instance and provide a global point of access to it.
-- **Implementation**: The `ElevatorController` acts as a singleton in this system. While not explicitly enforced with a private constructor and static instance, its role is to be the single point of coordination for all elevator operations.
-- **Benefits**: Centralizes the management of elevators and requests, preventing conflicts and ensuring consistent behavior across the system.
-
-## Folder Structure
-
-The code is organized into the following packages to promote modularity and separation of concerns:
-
-- `elevator.core`: Contains the main `ElevatorController`, which is the brain of the system.
-- `elevator.model`: Holds the Plain Old Java Objects (POJOs) that represent the core entities of our system, such as `Elevator`, `Request`, `Direction`, and `Status`.
-- `elevator.strategy`: Includes the different `ElevatorSelectionStrategy` implementations. This is where the logic for choosing the best elevator for a given request resides.
-- `elevator`: The root package, which contains the `Main` class to run the simulation.
+#### Folder Structure
 
 ```
-src/
-└── elevator/
-    ├── core/
-    │   └── ElevatorController.java
-    ├── model/
-    │   ├── Direction.java
-    │   ├── Elevator.java
-    │   ├── Request.java
-    │   └── Status.java
-    ├── strategy/
-    │   ├── ElevatorSelectionStrategy.java
-    │   ├── NearestElevatorStrategy.java
-    │   └── OptimalElevatorStrategy.java
-    └── Main.java
+src/elevator/
+├── core/       # The brain of the system
+├── model/      # Core data entities
+├── strategy/   # Interchangeable algorithms for elevator selection
+└── Main.java   # Entry point for the simulation
 ```
 
-## How to Run
+---
 
-1. **Compile the code**:
-   ```bash
-   javac -d . src/elevator/model/*.java src/elevator/strategy/*.java src/elevator/core/*.java src/elevator/Main.java
-   ```
-2. **Run the simulation**:
-   ```bash
-   java elevator.Main
-   ```
+### In-Memory "YouTube-Lite" Video Management System
 
-## Example Usage
+- **Go to Implementation: [`./src/youtube_upload`](./src/youtube_upload)**
 
-The `Main.java` file provides a simple demonstration of how to use the `ElevatorController`:
+This is a high-performance, in-memory video management system built with Core Java (17+). It is designed for high concurrency and thread safety without relying on any external libraries, application servers, or databases.
 
-```java
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Starting Elevator System...");
+#### System Architecture
 
-        // Create a controller with 3 elevators and the NearestElevatorStrategy
-        ElevatorController controller = new ElevatorController(3, new NearestElevatorStrategy());
+1.  **Core Data Structures**:
+    *   **Video Metadata Storage**: A `ConcurrentHashMap<String, Video>` is used as the primary data store for its high-concurrency reads and writes.
+    *   **Search Index**: A custom `InvertedIndex` (built on `ConcurrentHashMap`) provides fast, O(1)-like full-text search capabilities on video titles and tags.
 
-        // Simulate some user requests
-        controller.requestElevator(new Request(0, 5, Direction.UP));
-        
-        try { Thread.sleep(2000); } catch(InterruptedException e) {}
-        
-        controller.requestElevator(new Request(2, 8, Direction.UP));
-        controller.requestElevator(new Request(10, 1, Direction.DOWN));
+2.  **Concurrency Strategy**:
+    *   **Read-Heavy Operations**: `getVideo` and `searchVideos` are optimized for speed using non-blocking reads.
+    *   **Atomic Write Operations**: A `ReentrantReadWriteLock` is used during deletions to ensure that a video is removed from both the main store and the search index atomically.
 
-        // Allow time for the system to process requests
-        try {
-            Thread.sleep(15000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+3.  **Caching Layer**:
+    *   **LRU Cache**: A custom, thread-safe `LRUCache` (built on `LinkedHashMap`) is used to store the results of recent search queries.
+    *   **Cache Invalidation**: The entire search cache is cleared whenever a video is uploaded or deleted to prevent stale data.
 
-        System.out.println("Shutting down Elevator System.");
-        controller.shutdown();
-    }
-}
+#### Folder Structure
+
 ```
-
-### Switching Strategies
-
-To use a different elevator selection strategy, simply pass a different strategy object to the `ElevatorController`'s constructor:
-
-```java
-// Use the OptimalElevatorStrategy instead
-ElevatorController controller = new ElevatorController(3, new OptimalElevatorStrategy());
+src/youtube_upload/
+├── cache/      # Thread-safe, size-limited LRU cache
+├── exception/  # Custom exceptions
+├── model/      # Immutable record for video metadata
+├── search/     # In-memory inverted index for fast search
+├── service/    # Core service to manage video operations
+└── Main.java   # Entry point and example usage
 ```
-
-This demonstrates the power of the Strategy Pattern, allowing for easy changes in behavior without altering the core logic of the controller.
